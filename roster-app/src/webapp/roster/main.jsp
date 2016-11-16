@@ -3,11 +3,11 @@
 <%@ taglib uri="http://sakaiproject.org/jsf/sakai" prefix="sakai"%>
 <%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
 <%
-response.setContentType("text/html; charset=UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
 %>
 <jsp:useBean id="msgs" class="org.sakaiproject.util.ResourceLoader" scope="session">
-   <jsp:setProperty name="msgs" property="baseName" value="org.sakaiproject.tool.roster.bundle.Messages"/>
-</jsp:useBean>
+16	   <jsp:setProperty name="msgs" property="baseName" value="org.sakaiproject.tool.roster.bundle.Messages"/>
+17	</jsp:useBean>
 <f:view>
 
 <sakai:view title="#{msgs.facet_roster_list}" toolCssHref="/sakai-roster-tool/css/roster.css">
