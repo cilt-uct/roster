@@ -39,4 +39,9 @@ table.rosterPictures td {
 	vertical-align:top;
 }
 
+.rosterImage {
+  border: 1px solid #bbb;
+  width: 75px;
+}
+
 @media print  { .noprint  { display: none; } }
