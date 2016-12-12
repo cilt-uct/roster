@@ -38,7 +38,7 @@ response.setContentType("text/html; charset=UTF-8");
             </h:panelGrid>
 
 
-             <t:div styleClass="instruction">
+             <t:div styleClass="instruction" rendered="#{empty filter.participants}">
 
       			<%-- No filtering --%>
                 <h:outputText value="#{msgs.no_participants}" rendered="#{empty filter.participants && filter.searchFilterString eq filter.defaultSearchText && empty filter.sectionFilterTitle}" />
