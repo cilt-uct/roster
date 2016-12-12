@@ -77,7 +77,6 @@ response.setContentType("text/html; charset=UTF-8");
                                 rendered="#{
                                 (
                                 ! pictures.officialPhotosAvailableToCurrentUser &&
-                                participant.profilePhotoPublic &&
                                 ! empty participant.profile.pictureUrl &&
                                 ! participant.officialPhotoPublicAndPreferred
                                 ) ||
@@ -116,13 +115,12 @@ response.setContentType("text/html; charset=UTF-8");
                                 ) ||
                                 (
                                 ! pictures.officialPhotosAvailableToCurrentUser &&
-                                participant.profilePhotoPublic &&
                                 ! participant.officialPhotoPublicAndPreferred &&
                                 empty participant.profile.pictureUrl
                                 ) ||
                                 (
 								! pictures.officialPhotosAvailableToCurrentUser &&
-                                ! participant.profilePhotoPublic
+								prefs.displayProfilePhotos
                                 )
                                 }"
                                 />
