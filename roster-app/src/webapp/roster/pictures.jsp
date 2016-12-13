@@ -38,7 +38,7 @@ response.setContentType("text/html; charset=UTF-8");
             </h:panelGrid>
 
 
-             <t:div styleClass="instruction">
+             <t:div styleClass="instruction" rendered="#{empty filter.participants}">
 
       			<%-- No filtering --%>
                 <h:outputText value="#{msgs.no_participants}" rendered="#{empty filter.participants && filter.searchFilterString eq filter.defaultSearchText && empty filter.sectionFilterTitle}" />
@@ -77,7 +77,6 @@ response.setContentType("text/html; charset=UTF-8");
                                 rendered="#{
                                 (
                                 ! pictures.officialPhotosAvailableToCurrentUser &&
-                                participant.profilePhotoPublic &&
                                 ! empty participant.profile.pictureUrl &&
                                 ! participant.officialPhotoPublicAndPreferred
                                 ) ||
@@ -116,13 +115,12 @@ response.setContentType("text/html; charset=UTF-8");
                                 ) ||
                                 (
                                 ! pictures.officialPhotosAvailableToCurrentUser &&
-                                participant.profilePhotoPublic &&
                                 ! participant.officialPhotoPublicAndPreferred &&
                                 empty participant.profile.pictureUrl
                                 ) ||
                                 (
 								! pictures.officialPhotosAvailableToCurrentUser &&
-                                ! participant.profilePhotoPublic
+								prefs.displayProfilePhotos
                                 )
                                 }"
                                 />

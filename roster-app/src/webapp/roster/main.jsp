@@ -82,7 +82,7 @@
             </t:dataTable>
 
       <%-- Messages to display when there are no participants in the table above --%>
-      <t:div styleClass="instruction">
+      <t:div styleClass="instruction" rendered="#{empty filter.participants}">
 
       			<%-- No filtering --%>
                 <h:outputText value="#{msgs.no_participants}" rendered="#{empty filter.participants && filter.searchFilterString eq filter.defaultSearchText && empty filter.sectionFilterTitle}" />

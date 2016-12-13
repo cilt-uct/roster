@@ -15,7 +15,7 @@
         <h:commandButton id="clear_button" value="#{msgs.roster_clear_button}" actionListener="#{filter.clearSearch}" />
     </t:div>
 
-    <h:panelGroup styleClass="instruction">
+    <h:panelGroup styleClass="instruction" rendered="#{filter.participantCount > 0}">
         <t:div style="padding-left:10px;" rendered="#{filter.participantCount > 0}">
             <h:outputFormat value="#{msgs.currently_displaying_participants}" rendered="#{filter.participantCount > 1}">
                 <f:param value="#{filter.participantCount}" />
