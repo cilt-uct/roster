@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Iterator;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -80,8 +80,8 @@ public class SpreadsheetDataFileWriterXlsx implements SpreadsheetDataFileWriter 
 				Cell headerCell = createCell(headerRow, i);
 				headerCell.setCellValue((String)headerList.get(i));
 				headerCell.setCellStyle(headerCs);
-				log.info("i: " + i);
-				sheet.autoSizeColumn(i +1);
+				//log.info("i: " + i);
+				//sheet.autoSizeColumn(i);
 			}
 			
 			short rowPos = 1;
