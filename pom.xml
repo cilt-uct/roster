@@ -4,13 +4,12 @@
   <parent>
     <artifactId>base</artifactId>
     <groupId>org.sakaiproject</groupId>
-    <version>11-SNAPSHOT</version>
+    <version>12-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <name>Sakai Roster Project</name>
   <groupId>org.sakaiproject</groupId>
   <artifactId>roster-base</artifactId>
-  <version>11-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
