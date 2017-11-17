@@ -59,7 +59,7 @@ public class SpreadsheetDataFileWriterXlsx implements SpreadsheetDataFileWriter 
 			Iterator<List<Object>> dataIter = spreadsheetData.iterator();
 			
 			// Set the header style
-			headerCs.setBorderBottom(CellStyle.BORDER_THIN);
+			//headerCs.setBorderBottom(CellStyle.BORDER_THIN);
 			headerCs.setFillBackgroundColor(HSSFColor.BLUE_GREY.index);
 
 			// Set the font
