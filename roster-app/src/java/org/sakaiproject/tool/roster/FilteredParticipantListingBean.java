@@ -23,20 +23,17 @@ package org.sakaiproject.tool.roster;
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.exception.IdUnusedException;
 import org.sakaiproject.jsf.util.LocaleUtil;
@@ -44,8 +41,10 @@ import org.sakaiproject.section.api.coursemanagement.CourseSection;
 import org.sakaiproject.site.api.Site;
 import org.sakaiproject.user.api.User;
 
-public class FilteredParticipantListingBean implements Serializable {
-	private static final Log log = LogFactory.getLog(FilteredParticipantListingBean.class);
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class FilteredParticipantListingBean implements Serializable {;
 	private static final long serialVersionUID = 1L;
 
 	protected ServicesBean services;

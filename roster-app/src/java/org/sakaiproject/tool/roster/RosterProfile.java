@@ -23,13 +23,15 @@ package org.sakaiproject.tool.roster;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger; 
-import org.slf4j.LoggerFactory;
 import org.sakaiproject.api.app.profile.Profile;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.authz.cover.SecurityService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class RosterProfile {
-	private static final Logger log = LoggerFactory.getLogger(RosterProfile.class);
+
 
 	// Service & Bean References
 	protected ServicesBean services;

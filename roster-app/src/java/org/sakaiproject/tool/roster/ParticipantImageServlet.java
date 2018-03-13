@@ -32,8 +32,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.roster.PhotoService;
 import org.sakaiproject.api.app.roster.RosterFunctions;
 import org.sakaiproject.authz.cover.SecurityService;
@@ -42,6 +40,9 @@ import org.sakaiproject.site.cover.SiteService;
 import org.sakaiproject.tool.cover.ToolManager;
 import org.sakaiproject.util.ResourceLoader;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ParticipantImageServlet extends HttpServlet
 {
 	/**
@@ -49,7 +50,6 @@ public class ParticipantImageServlet extends HttpServlet
 	 */
 	private static final long serialVersionUID = 3420767508601031864L;
 	private ResourceLoader msgs = new ResourceLoader("org.sakaiproject.tool.roster.bundle.Messages");
-	private static final Log LOG = LogFactory.getLog(ParticipantImageServlet.class);
 	private static final String UNIVERSITY_ID_PHOTO = "photo";
 	private static final String CONTENT_TYPE = "image/jpeg";
 	private PhotoService photoService;
@@ -62,7 +62,7 @@ public class ParticipantImageServlet extends HttpServlet
 		{
 			photoService = (PhotoService)ComponentManager.get("org.sakaiproject.component.app.roster.ProfilePhotoService");
 		}
-		if (LOG.isDebugEnabled()) LOG.debug("init : photoService=" + photoService);
+		if (log.isDebugEnabled()) log.debug("init : photoService=" + photoService);
 	}
 
 	/**
@@ -78,8 +78,8 @@ public class ParticipantImageServlet extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		if (LOG.isDebugEnabled())
-			LOG.debug("doGet(HttpServletRequest" + request + ", HttpServletResponse"
+		if (log.isDebugEnabled())
+			log.debug("doGet(HttpServletRequest" + request + ", HttpServletResponse"
 					+ response + ")");
 		response.setContentType(CONTENT_TYPE);
 		String userId = null;
@@ -99,8 +99,8 @@ public class ParticipantImageServlet extends HttpServlet
 	private void displayUniversityIDPhoto(String userId, OutputStream stream,
 			HttpServletResponse response)
 	{
-		if (LOG.isDebugEnabled())
-			LOG.debug("displayUniversityIDPhoto (String " + userId
+		if (log.isDebugEnabled())
+			log.debug("displayUniversityIDPhoto (String " + userId
 					+ "OutputStream stream, HttpServletResponse response)");
 		try
 		{
@@ -116,7 +116,7 @@ public class ParticipantImageServlet extends HttpServlet
  
 			if (displayPhoto != null && displayPhoto.length > 0)
 			{
-				LOG.debug("Display University ID photo for user:" + userId);
+				log.debug("Display University ID photo for user:" + userId);
 				response.setContentLength(displayPhoto.length);
 				stream.write(displayPhoto);
 				stream.flush();
@@ -124,14 +124,14 @@ public class ParticipantImageServlet extends HttpServlet
 			}
 			else
 			{
-				LOG.debug("Display University ID photo for user:" + userId
+				log.debug("Display University ID photo for user:" + userId
 						+ " is unavailable");
 				displayLocalImage(stream);
 			}
 		}
 		catch (IOException e)
 		{
-			LOG.error(e.getMessage(), e);
+			log.error(e.getMessage(), e);
 		}
 
 	}
@@ -141,8 +141,8 @@ public class ParticipantImageServlet extends HttpServlet
 	{
 		String unavailable_image = msgs.getString("img_off_unavail");
 
-		if (LOG.isDebugEnabled())
-			LOG.debug("displayPhotoUnavailable(OutputStream" + stream + ", String "
+		if (log.isDebugEnabled())
+			log.debug("displayPhotoUnavailable(OutputStream" + stream + ", String "
 					+ unavailable_image + ")");
 		try
 		{
@@ -167,11 +167,11 @@ public class ParticipantImageServlet extends HttpServlet
 		}
 		catch (FileNotFoundException e)
 		{
-			LOG.error(e.getMessage(), e);
+			log.error(e.getMessage(), e);
 		}
 		catch (IOException e)
 		{
-			LOG.error(e.getMessage(), e);
+			log.error(e.getMessage(), e);
 		}
 	}
 

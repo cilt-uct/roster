@@ -20,6 +20,8 @@
  **********************************************************************************/
 package org.sakaiproject.tool.roster;
 
+
+
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -30,12 +32,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.profile.Profile;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.authz.api.AuthzGroup;
@@ -48,10 +49,12 @@ import org.sakaiproject.user.api.User;
 import org.sakaiproject.user.api.UserNotDefinedException;
 import org.sakaiproject.util.ResourceLoader;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class FilteredStatusListingBean extends FilteredParticipantListingBean implements Serializable {
 
 	private static final String ALL_STATUS="ALL_STATUS";
-	private static final Log log = LogFactory.getLog(FilteredStatusListingBean.class);
 	private static final long serialVersionUID = 1L;
 
 	protected String statusFilter;
