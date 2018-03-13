@@ -52,13 +52,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.component.UserRoleUtils;
 import org.apache.myfaces.component.html.ext.HtmlDataTable;
 import org.apache.myfaces.custom.sortheader.HtmlCommandSortHeader;
 import org.apache.myfaces.shared_tomahawk.renderkit.html.HTML;
 import org.apache.myfaces.shared_tomahawk.renderkit.html.HtmlLinkRendererBase;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * COPIED OVER FROM SECTIONS TO BREAK THE DEPENDENCY CHAIN - AZ (MT)
@@ -69,9 +69,9 @@ import org.apache.myfaces.shared_tomahawk.renderkit.html.HtmlLinkRendererBase;
  *
  * @author <a href="mailto:jholtzman@berkeley.edu">Josh Holtzman </a>
  */
+@Slf4j
 public class HtmlSortHeaderRenderer extends HtmlLinkRendererBase {
-	private static final Log log = LogFactory
-			.getLog(HtmlSortHeaderRenderer.class);
+
 	public final static String CURRENT_SORT_STYLE = "currentSort";
 	public final static String NOT_CURRENT_SORT_STYLE = "notCurrentSort";
 

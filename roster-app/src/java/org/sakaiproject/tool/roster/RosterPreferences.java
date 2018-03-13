@@ -24,11 +24,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class RosterPreferences {
-	private static final Log LOG = LogFactory.getLog(RosterPreferences.class);
+
 	
 	public enum Column {
 		DISPLAY_NAME("sortName"), DISPLAY_ID("displayId"), ROLE("role"), EMAIL("email");
@@ -116,9 +116,9 @@ public class RosterPreferences {
 		}
 		else {
 			sortColumn = Column.DISPLAY_NAME.toString();
-			LOG.warn("defaultSortColumn value = " + defaultSortColumn + " is invalid, must be one of " + SORT_COLUMNS.toString());
-			LOG.warn("Check your default.sakai.preferences and sakai.preferences for a valid roster.defaultSortColumn value");				
-			LOG.warn("Defaulting to sorting by " + sortColumn);	
+			log.warn("defaultSortColumn value = " + defaultSortColumn + " is invalid, must be one of " + SORT_COLUMNS.toString());
+			log.warn("Check your default.sakai.preferences and sakai.preferences for a valid roster.defaultSortColumn value");				
+			log.warn("Defaulting to sorting by " + sortColumn);	
 		}
 		return sortColumn;
 	}

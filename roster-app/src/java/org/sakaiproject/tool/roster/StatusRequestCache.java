@@ -23,14 +23,14 @@ package org.sakaiproject.tool.roster;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.authz.api.GroupProvider;
 import org.sakaiproject.coursemanagement.api.EnrollmentSet;
 import org.sakaiproject.coursemanagement.api.Section;
 import org.sakaiproject.coursemanagement.api.exception.IdNotFoundException;
 import org.sakaiproject.exception.IdUnusedException;
 import org.sakaiproject.site.api.Site;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Some of our session-scoped beans make frequent and expensive calls to services.
@@ -42,8 +42,8 @@ import org.sakaiproject.site.api.Site;
  * @author <a href="mailto:jholtzman@berkeley.edu">jholtzman@berkeley.edu</a>
  *
  */
+@Slf4j
 public class StatusRequestCache {
-	private static final Log log = LogFactory.getLog(StatusRequestCache.class);
 
 	protected boolean init;
 	List<EnrollmentSet> enrollmentSets;
