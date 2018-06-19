@@ -56,6 +56,9 @@ import org.sakaiproject.user.api.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class RosterOverview extends BaseRosterPageBean {
 	private static final String DISPLAY_ROSTER_PRIVACY_MSG = "roster.privacy.display";
 
@@ -153,7 +156,8 @@ public class RosterOverview extends BaseRosterPageBean {
             String userId = filter.services.userDirectoryService.getCurrentUser().getId();
             isMaintainer = maintainers.contains(userId);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.info(e.getLocalizedMessage(), e);
+            
         }
         return isMaintainer;
     }
@@ -190,7 +194,7 @@ public class RosterOverview extends BaseRosterPageBean {
             String instructorEid = user.getEid();
             attributes.put("instructoreid", instructorEid);
         } catch (Exception e) {
-            e.printStackTrace();
+        	log.info(e.getLocalizedMessage(), e);
         }
 
         // set the view property
@@ -223,7 +227,7 @@ public class RosterOverview extends BaseRosterPageBean {
 
             tokenHash = tokenEncoded.toString();
         } catch (Exception e) {
-            e.printStackTrace();
+        	log.info(e.getLocalizedMessage(), e);
         }
 
         return tokenHash;
@@ -255,7 +259,7 @@ public class RosterOverview extends BaseRosterPageBean {
                 .append("&view=")
                 .append(attributes.get("view"));
         } catch (Exception e) {
-            e.printStackTrace();
+        	log.info(e.getLocalizedMessage(), e);
         }
 
         return requestUrl.toString();
@@ -289,7 +293,7 @@ public class RosterOverview extends BaseRosterPageBean {
             // handle redirect
             doRedirect(responseContent);
         } catch (Exception e) {
-            e.printStackTrace();
+        	log.info(e.getLocalizedMessage(), e);;
         }
     }
 
@@ -304,7 +308,7 @@ public class RosterOverview extends BaseRosterPageBean {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect(redirectUrl);
         } catch (Exception e) {
-            e.printStackTrace();
+        	log.info(e.getLocalizedMessage(), e);
         }
     }
 }

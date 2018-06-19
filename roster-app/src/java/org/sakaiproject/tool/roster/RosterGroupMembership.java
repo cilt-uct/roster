@@ -21,9 +21,9 @@
 package org.sakaiproject.tool.roster;
 
 import java.text.Collator;
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.RuleBasedCollator;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -31,15 +31,13 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.Map.Entry;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.api.app.roster.RosterFunctions;
 import org.sakaiproject.component.cover.ServerConfigurationService;
@@ -51,8 +49,11 @@ import org.sakaiproject.site.api.Group;
 import org.sakaiproject.site.api.Site;
 import org.sakaiproject.site.api.SiteService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class RosterGroupMembership extends BaseRosterPageBean {
-	private static final Log log = LogFactory.getLog(RosterGroupMembership.class);
+
 
 	private static final String DISPLAY_ROSTER_PRIVACY_MSG = "roster.privacy.display";
 

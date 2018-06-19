@@ -28,13 +28,14 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.jsf.util.LocaleUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class RosterPictures extends BaseRosterPageBean {
-	private static final Log log = LogFactory.getLog(RosterPictures.class);
+
 
 	/**
 	 * Always sort by users' sort names on this page.

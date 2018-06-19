@@ -32,11 +32,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.profile.Profile;
 import org.sakaiproject.api.app.profile.ProfileManager;
 import org.sakaiproject.api.app.roster.Participant;
@@ -62,8 +60,11 @@ import org.sakaiproject.user.api.User;
 import org.sakaiproject.user.api.UserDirectoryService;
 import org.sakaiproject.user.api.UserNotDefinedException;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public abstract class RosterManagerImpl implements RosterManager {
-    private static final Log log = LogFactory.getLog(RosterManagerImpl.class);
+
 
     public abstract ProfileManager profileManager();
     public abstract PrivacyManager privacyManager();
@@ -207,7 +208,7 @@ public abstract class RosterManagerImpl implements RosterManager {
         try {
             site = siteService().getSite(getSiteId());
         } catch (IdUnusedException ide) {
-            log.warn(ide);
+            log.warn(ide.getLocalizedMessage() ,ide);
             return groupMembers;
         }
         Collection<Group> groups = site.getGroups();

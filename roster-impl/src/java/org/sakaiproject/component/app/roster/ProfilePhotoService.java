@@ -22,16 +22,16 @@
 
 package org.sakaiproject.component.app.roster;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.sakaiproject.api.app.profile.ProfileManager;
 import org.sakaiproject.api.app.roster.PhotoService;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * By default, roster photos come from the Profile service.
  */
+@Slf4j
 public class ProfilePhotoService implements PhotoService {
-	private static final Log log = LogFactory.getLog(ProfilePhotoService.class);
 	
 	private ProfileManager profileManager;
 
