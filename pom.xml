@@ -13,7 +13,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>components</module>
     <module>roster-api</module>
     <module>roster-impl</module>
     <module>roster-app</module>
