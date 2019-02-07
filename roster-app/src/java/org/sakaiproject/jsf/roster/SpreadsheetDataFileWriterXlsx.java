@@ -59,7 +59,7 @@ public class SpreadsheetDataFileWriterXlsx implements SpreadsheetDataFileWriter 
 			
 			// Set the header style
 			//headerCs.setBorderBottom(CellStyle.BORDER_THIN);
-			headerCs.setFillBackgroundColor(HSSFColor.BLUE_GREY.index);
+			headerCs.setFillBackgroundColor(HSSFColor.HSSFColorPredefined.BLUE_GREY.getIndex());
 
 			// Set the font
 			CellStyle cellStyle = null;
