@@ -3,12 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>roster-base</artifactId>
-    <groupId>org.sakaiproject</groupId>
-    <version>12-SNAPSHOT</version>
+    <groupId>org.sakaiproject.roster</groupId>
+    <version>19-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <name>Sakai Roster Implementation</name>
-  <groupId>org.sakaiproject</groupId>
   <artifactId>sakai-roster-impl</artifactId>
   <organization>
     <name>Sakai Project</name>
@@ -29,7 +28,7 @@
       <artifactId>sakai-component-manager</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.sakaiproject</groupId>
+      <groupId>org.sakaiproject.roster</groupId>
       <artifactId>sakai-roster-api</artifactId>
     </dependency>
     <dependency>

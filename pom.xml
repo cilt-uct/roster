@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>base</artifactId>
+    <artifactId>master</artifactId>
     <groupId>org.sakaiproject</groupId>
-    <version>12-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
+    <version>19-SNAPSHOT</version>
+    <relativePath>../master/pom.xml</relativePath>
   </parent>
   <name>Sakai Roster Project</name>
-  <groupId>org.sakaiproject</groupId>
+  <groupId>org.sakaiproject.roster</groupId>
   <artifactId>roster-base</artifactId>
   <packaging>pom</packaging>
 
@@ -34,18 +34,18 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.sakaiproject</groupId>
+      <groupId>org.sakaiproject.roster</groupId>
       <artifactId>sakai-roster-api</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
       <dependency>
-        <groupId>org.sakaiproject</groupId>
+        <groupId>org.sakaiproject.roster</groupId>
         <artifactId>sakai-roster-impl</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.sakaiproject</groupId>
+        <groupId>org.sakaiproject.roster</groupId>
         <artifactId>sakai-roster-model</artifactId>
         <version>${project.version}</version>
       </dependency>
