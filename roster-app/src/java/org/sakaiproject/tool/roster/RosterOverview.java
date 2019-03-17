@@ -40,7 +40,7 @@ import java.util.TimeZone;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.api.app.roster.RosterFunctions;
 import org.sakaiproject.component.cover.ServerConfigurationService;

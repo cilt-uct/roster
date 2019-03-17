@@ -33,7 +33,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.exception.IdUnusedException;
 import org.sakaiproject.jsf.util.LocaleUtil;

@@ -36,7 +36,7 @@ import java.util.Set;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.sakaiproject.api.app.profile.Profile;
 import org.sakaiproject.api.app.roster.Participant;
 import org.sakaiproject.authz.api.AuthzGroup;
