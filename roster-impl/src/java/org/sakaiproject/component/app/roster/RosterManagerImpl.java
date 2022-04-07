@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.sakaiproject.api.app.profile.Profile;
 import org.sakaiproject.api.app.profile.ProfileManager;
@@ -307,7 +308,7 @@ public abstract class RosterManagerImpl implements RosterManager {
     }
 
     private List<Participant> buildParticipantList(Map<String, UserRole> userMap, Map<String, Profile> profilesMap) {
-        List<Participant> participants = new ArrayList<Participant>();
+        List<Participant> participants = new CopyOnWriteArrayList<Participant>();
         Site site = null;
         try {
 			site = siteService().getSite(getSiteId());

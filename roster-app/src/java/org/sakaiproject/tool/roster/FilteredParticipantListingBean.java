@@ -23,6 +23,7 @@ package org.sakaiproject.tool.roster;
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -103,7 +104,7 @@ public class FilteredParticipantListingBean implements Serializable {;
 
 	protected List<Participant> findParticipants() {
 		// Only get the participants we need
-		List<Participant> participants = new ArrayList();
+		List<Participant> participants = new CopyOnWriteArrayList();
 		try {
 		    if(sectionFilter != null && isDisplaySectionsFilter()) {
 			participants = services.rosterManager.getRoster(sectionFilter);
