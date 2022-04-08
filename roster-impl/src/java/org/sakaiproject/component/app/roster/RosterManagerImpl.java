@@ -270,15 +270,6 @@ public abstract class RosterManagerImpl implements RosterManager {
             userIds.add(participant.getUser().getId());
         }
 
-        Set<String> hiddenUsers = privacyManager().findHidden("/site/" + getSiteId(), userIds);
-
-        for(Iterator<Participant> iter = participants.iterator(); iter.hasNext();) {
-            Participant participant = iter.next();
-            String userId = participant.getUser().getId();
-            if(hiddenUsers.contains(userId) && ! visibleMembersForCurrentUser.contains(userId)) {
-                iter.remove();
-            }
-        }
     }
 
     private List<Participant> getParticipantsInSite() {

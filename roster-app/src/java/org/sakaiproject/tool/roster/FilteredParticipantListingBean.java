@@ -116,10 +116,14 @@ public class FilteredParticipantListingBean implements Serializable {;
 		    log.warn("Exception getting Roster",e);
 		}
 
-		for(Iterator<Participant> iter = participants.iterator(); iter.hasNext();) {
-			Participant participant = iter.next();
-			if(filterParticipant(participant)) iter.remove();
+		List<Participant> removedParticipants = new ArrayList();
+		for (Participant participant: participants) {
+			if (filterParticipant(participant)) {
+				removedParticipants.add(participant);
+			}
 		}
+
+		participants.removeAll(removedParticipants);
 
 		return participants;
 	}
