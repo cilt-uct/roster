@@ -12,12 +12,13 @@ response.setContentType("text/html; charset=UTF-8");
 <sakai:view title="#{msgs.title_status}" toolCssHref="/sakai-roster-tool/css/roster.css">		
 	<%="<script src=js/roster.js></script>"%>
 
-			<h:form id="roster_form">
+	<h:form id="nav_form">
+		<t:aliasBean alias="#{viewBean}" value="#{status}">
+			<%@ include file="inc/nav.jspf" %>
+		</t:aliasBean>
+        </h:form>
 
-				<t:aliasBean alias="#{viewBean}" value="#{status}">
-					<%@ include file="inc/nav.jspf" %>
-				</t:aliasBean>
-
+	<h:form id="roster_form">
 
 				<%-- Initialize the filter --%>
 				<h:outputText value="#{enrollmentStatusFilter.init}"/>
@@ -41,16 +42,16 @@ response.setContentType("text/html; charset=UTF-8");
 	        		   	</h:selectOneMenu>
 		        </h:panelGrid>
 
-				<h:panelGrid columns="2">
-					<h:panelGroup>
-	    		        <h:inputText id="search" value="#{enrollmentStatusFilter.searchFilterString}"
-	        		        onfocus="clearIfDefaultString(this, '#{msgs.roster_search_text}')"/>
-	        		    <h:commandButton value="#{msgs.roster_search_button}" actionListener="#{enrollmentStatusFilter.search}"/>
-	        		    <h:commandButton value="#{msgs.roster_clear_button}" actionListener="#{enrollmentStatusFilter.clearSearch}"/>
-                    </h:panelGroup>
-	        		    
-                    <h:outputText value="#{enrollmentStatusFilter.currentlyDisplayingMessage}" styleClass="instruction" />
-                </h:panelGrid>
+			<h:panelGrid columns="2">
+				<h:panelGroup>
+					<t:div id="search_filter" styleClass="act">
+						<h:inputText id="search" value="#{enrollmentStatusFilter.searchFilterString}" onfocus="clearIfDefaultString(this, '#{msgs.roster_search_text}')"/>
+						<h:commandButton id="search_button" value="#{msgs.roster_search_button}" actionListener="#{enrollmentStatusFilter.search}" styleClass="active" />
+						<h:commandButton id="clear_button" value="#{msgs.roster_clear_button}" actionListener="#{enrollmentStatusFilter.clearSearch}"/>
+					</t:div>
+				</h:panelGroup>
+				<h:outputText value="#{enrollmentStatusFilter.currentlyDisplayingMessage}" styleClass="instruction" />
+			</h:panelGrid>
 
                 <t:dataTable cellpadding="0" cellspacing="0"
                              id="rosterTable"
@@ -107,13 +108,13 @@ response.setContentType("text/html; charset=UTF-8");
 			    </t:dataTable>
 
 
-                 <%-- Messages to display when there are no participants in the table above --%>
-            <t:div styleClass="instruction">      		      		
-                <h:outputFormat value="#{msgs.no_participants_msg}" rendered="#{empty filter.participants}" >
-                    <f:param value="#{filter.searchFilterString}"/>
+           <%-- Messages to display when there are no participants in the table above --%>
+	    <t:div styleClass="instruction" rendered="#{empty status.participants}">
+                <h:outputFormat value="#{msgs.no_participants_msg}" rendered="#{empty status.participants}" >
+                    <f:param value="#{enrollmentStatusFilter.searchFilterString}"/>
                 </h:outputFormat>
             </t:div>
 
-            </h:form>
+	</h:form>
 </sakai:view>
 </f:view>
